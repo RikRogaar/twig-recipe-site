@@ -1,0 +1,56 @@
+{% extends "./layouts/app.twig" %}
+
+{% block content %}
+    <div class="bg-dark p-3 rounded text-white">
+        <form method='post'>
+            <fieldset>
+                <legend>Edit Recipe</legend>
+                <div class="mb-3">
+                    <label for="TextInput" class="form-label">Name</label>
+                    <input type="text" id="TextInput" class="form-control" name="name" value="{{recipe.name}}">
+                </div>
+                <div class="mb-3">
+                    <label for="kitchenSelect" class="form-label">Kitchen</label>
+                    <select id="kitchenSelect" class="form-select" name="kitchen_id">
+                    <option disabled selected>Select a kitchen</option>
+                    {% for key,value in kitchens %}
+                        {% if key == recipe.kitchen_id %}
+                            <option value="{{key}}" selected>{{value.name}}</option>
+                        {% else %}
+                            <option value="{{key}}">{{value.name}}</option>
+                        {% endif %}
+                    {% endfor %}
+                </select>
+                </div>
+                <div class="mb-3">
+                    <label for="typeSelect" class="form-label">Type</label>
+                    <select id="typeSelect" class="form-select" name="type">
+                    <option disabled selected>Select a type</option>
+                      {% for type in types %}
+                          {% if type == recipe.type %}
+                              <option value="{{type}}" selected>{{type}}</option>
+                          {% else %}
+                              <option value="{{type}}">{{type}}</option>
+                          {% endif %}
+                      {% endfor %}
+                </select>
+                </div>
+                <div class="mb-3">
+                    <label for="levelSelect" class="form-label">Level</label>
+                    <select id="levelSelect" class="form-select" name="level">
+                    <option disabled selected>Select a level</option>
+                    {% for level in levels %}
+                        {% if level == recipe.level %}
+                            <option value="{{level}}" selected>{{level}}</option>
+                        {% else %}
+                            <option value="{{level}}">{{level}}</option>
+                        {% endif %}
+                    {% endfor %}
+                </select>
+                </div>
+                <a href="/" class="btn btn-secondary">Back</a>
+                <button type="submit" class="btn btn-secondary">Submit</button>
+            </fieldset>
+        </form>
+    </div>
+{% endblock %}

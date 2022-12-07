@@ -1,0 +1,14 @@
+{% extends "./layouts/app.twig" %}
+
+{% block content %}
+    <style type="text/css">
+        .container{
+            text-align: center;
+            color: white;
+        }
+    </style>
+    <div class="container">
+        <h1>Oops! An Error Occurred</h1>
+        <h2>The server returned a "{{ errorNumber }} {{ errorMessage }}".</h2>
+    </div>
+{% endblock %}

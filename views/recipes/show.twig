@@ -1,0 +1,35 @@
+{% extends "./layouts/app.twig" %}
+
+{% block table %}
+    <table class="table table-dark table-striped">
+        <thead>
+            <tr>
+                <th colspan="3">{{ recipe.name }}</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Kitchen</td>
+                <td><a href="/kitchen/show?id={{recipe.kitchen_id}}">{{ kitchen.name }}</a></td>
+            </tr>
+            <tr>
+                <td>Type</td>
+                <td>{{ recipe.type }}</td>
+            </tr>
+            <tr>
+                <td>Level</td>
+                <td><span class="badge {{
+                        recipe.level == 'easy' ? 'text-bg-success' :
+                        recipe.level == 'medium' ? 'text-bg-warning' :
+                        recipe.level == 'hard' ? 'text-bg-danger'}}">
+                        {{ recipe.level }}
+                </span></td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <a href="/recipe/edit?id={{recipe.id}}" class="btn btn-secondary">Edit</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+{% endblock %}
