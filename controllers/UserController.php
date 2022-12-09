@@ -18,11 +18,11 @@ class UserController extends BaseController
         if (!$user) {
             showTemplate('user/login.twig', [
             'error' => 'User not found',
-        ]);
+            ]);
         } elseif (!password_verify($_POST['password'], $user->password)) {
             showTemplate('user/login.twig', [
             'error' => 'Wrong password',
-        ]);
+            ]);
         } else {
             $_SESSION['user'] = $user;
             header('Location: /');
