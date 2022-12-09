@@ -34,4 +34,13 @@ class UserController extends BaseController
         session_destroy();
         header('Location: /user/login');
     }
+
+    public function isLoggedIn()
+    {
+        if (!isset($_SESSION['user'])) {
+            if ($_GET['params'] !== 'user/login') {
+                header('Location: /user/login');
+            }
+        }
+    }
 }

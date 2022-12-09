@@ -8,6 +8,10 @@ $twig = new \Twig\Environment($loader, [
     'cache' => false,
 ]);
 
+$userController = new UserController();
+
+$userController->isLoggedIn();
+
 $path = getPath();
 
 $controllerName = ucwords($path[0]) ?: 'Recipe';
