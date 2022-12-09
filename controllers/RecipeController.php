@@ -18,6 +18,11 @@ const TYPE = [
 
 class RecipeController extends BaseController
 {
+    public function __construct()
+    {
+      $this->user = $_SESSION['user'] ?? null;
+    }
+
     public function index()
     {
         global $twig;
@@ -25,6 +30,7 @@ class RecipeController extends BaseController
         $recipes = R::findAll('recipes');
         echo $twig->render('recipes/index.twig', [
             'recipes' => $recipes,
+            'user' => $this->user,
         ]);
     }
 

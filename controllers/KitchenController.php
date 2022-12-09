@@ -6,6 +6,11 @@ use RedBeanPHP\R as R;
 
 class KitchenController extends BaseController
 {
+    public function __construct()
+    {
+      $this->user = $_SESSION['user'] ?? null;
+    }
+
     public function index()
     {
         global $twig;
@@ -13,6 +18,7 @@ class KitchenController extends BaseController
         $kitchens = R::findAll('kitchens');
         echo $twig->render('kitchens/index.twig', [
             'kitchens' => $kitchens,
+            'user' => $this->user,
         ]);
     }
 
