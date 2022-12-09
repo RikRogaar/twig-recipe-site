@@ -20,7 +20,7 @@ class RecipeController extends BaseController
 {
     public function __construct()
     {
-      $this->user = $_SESSION['user'] ?? null;
+        $this->user = $_SESSION['user'] ?? null;
     }
 
     public function index()
