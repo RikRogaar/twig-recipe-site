@@ -3,4 +3,3 @@
     RewriteCond %{REQUEST_URI} !=public/index.php
     RewriteRule ^(.*)$ public/index.php?params=$1 [L,QSA]
 </IfModule>
-

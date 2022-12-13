@@ -67,9 +67,10 @@
                 <li id="nav-li"><a href="/recipe">Recipes</a></li>
                 <li id="nav-li"><a href="/kitchen">Kitchens</a></li>
                 {% if user != NULL %}
-                <li id="nav-li" style="float:right"><a href="user/logout">Logout</a></li>
+                <li id="nav-li" style="float:right"><a href="/user/logout">Logout</a></li>
                 {% else %}
-                <li id="nav-li" style="float:right"><a href="user/login">Login</a></li>
+                <li id="nav-li" style="float:right"><a href="/user/login">Login</a></li>
+                <li id="nav-li" style="float:right"><a href="/user/register">Register</a></li>
                 {% endif %}
             </ul>
 

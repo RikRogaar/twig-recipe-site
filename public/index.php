@@ -8,9 +8,9 @@ $twig = new \Twig\Environment($loader, [
     'cache' => false,
 ]);
 
-$userController = new UserController();
+$baseController = new BaseController();
 
-$userController->isLoggedIn();
+$baseController->isLoggedIn();
 
 $path = getPath();
 

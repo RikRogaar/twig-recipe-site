@@ -1,0 +1,31 @@
+{% extends "./layouts/app.twig" %}
+
+{% block content %}
+    <div class="bg-dark p-3 rounded text-white">
+        <form method='post'>
+            <fieldset>
+                <legend>Create an account</legend>
+                <div class="mb-3">
+                    <label for="TextInput" class="form-label">Username</label>
+                    <input type="text" id="TextInput" class="form-control" placeholder="Username" name="username">
+                </div>
+                <div class="mb-3">
+                    <label for="TextInput" class="form-label">Password</label>
+                    <input type="password" id="TextInput" class="form-control" placeholder="Password" name="password">
+                </div>
+                <div class="mb-3">
+                    <label for="TextInput" class="form-label">Confirm Password</label>
+                    <input type="password" id="TextInput" class="form-control" placeholder="Confirm Password" name="confirmPassword">
+                </div>
+                <button type="submit" class="btn btn-secondary">Register</button>
+            </fieldset>
+        </form>
+    </div>
+    <div class="mt-3">
+      {% if error is not empty %}
+          <div class="alert alert-danger" role="alert">
+              {{ error }}
+          </div>
+      {% endif %}
+    </div>
+{% endblock %}

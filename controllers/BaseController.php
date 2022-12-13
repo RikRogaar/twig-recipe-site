@@ -17,6 +17,15 @@ class BaseController
     {
         return R::findOne($table, 'id = ?', [$id]);
     }
+
+    public function isLoggedIn()
+    {
+        if (!isset($_SESSION['user'])) {
+            if ($_GET['params'] !== 'user/login' && $_GET['params'] !== 'user/register') {
+                header('Location: /user/login');
+            }
+        }
+    }
 }
 
 R::close();
