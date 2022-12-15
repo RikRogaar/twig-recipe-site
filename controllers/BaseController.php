@@ -21,7 +21,7 @@ class BaseController
     public function isLoggedIn()
     {
         if (!isset($_SESSION['user'])) {
-            if ($_GET['params'] !== 'user/login' && $_GET['params'] !== 'user/register') {
+            if ($_SERVER['REQUEST_URI'] != '/user/login' && $_SERVER['REQUEST_URI'] != '/user/register') {
                 header('Location: /user/login');
             }
         }
